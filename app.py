@@ -21,8 +21,8 @@ class DaysList(Resource):
         return DAYS
     
     def post(self):
-        parser.add_argument("temperature")
-        parser.add_argument("date")
+        parser.add_argument("temperature", location='form')
+        parser.add_argument("date", location='form')
         args = parser.parse_args()
         day_id = int(max(DAYS.keys())) + 1
         day_id = '%i' % day_id
