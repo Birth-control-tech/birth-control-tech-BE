@@ -1,10 +1,20 @@
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
+from .extensions import mongo
+from .main import main
 
-app = Flask(__name__)
-api = Api(app)
+def create_app(config_object='lono.settings'):
+    app = Flask(__name__)
 
-DAYS = {'1': {"temperature":'97.1'},
+    app.config.from_object(config_object)
+
+    mongo.init_app(app)
+
+    app.register_blueprint(main)
+
+    api = Api(app)
+
+DAYS = {'1': {"temperature":'97.1', "high_risk": false, "predicted_ovulation": },
                 '2': {"temperature":'97.1'},
                 '3': {"temperature":'97.1'},
                 '4': {"temperature":'97.1'},
