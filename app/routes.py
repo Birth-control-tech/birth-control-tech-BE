@@ -33,3 +33,18 @@ def createDay():
     db.session.commit()
     return "<p>Day has been added</p>"
 
+
+@app.route('/user_data', methods=['GET'])
+def returnData():
+    return render_template('data.html', data=UserData.query.all())
+
+
+@app.route('/add_data', methods=['POST'])
+def createData():
+    start_date = request.form['start_date']
+    avg_period = request.form['avg_period']
+    avg_cycle = request.form['avg_cycle']
+    new_data = UserData(start_date, avg_period, avg_cycle)
+    db.session.add(new_data)
+    db.session.commit()
+    return "<p>Data has been added</p>"
