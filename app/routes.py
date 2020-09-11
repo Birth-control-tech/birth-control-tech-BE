@@ -1,7 +1,10 @@
 from flask import request, jsonify, session, render_template
 from app import app
 from app.models import Day
+from app.models import UserData
 from app import db
+
+
 
 
 days = [{'temperature':'97', 'date':'01/01/2020', 'high_risk':False},
