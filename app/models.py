@@ -2,7 +2,7 @@ from app import db
 
 class Day(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    temperature = db.Column(db.String(20), nullable=False)
+    temperature = db.Column(db.Float, nullable=False)
     date = db.Column(db.String(20), nullable=False)
     high_risk = db.Column(db.Boolean(), nullable=True)
 
