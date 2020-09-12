@@ -1,5 +1,12 @@
 from app import db
+from flask_script import Manager
+from flask_migrate import Migrate, MigrateCommand
 
+
+migrate = Migrate(app, db)
+manager = Manager(app)
+
+manager.add_command('db', MigrateCommand)
 class Day(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     temperature = db.Column(db.Float, nullable=False)
@@ -26,3 +33,6 @@ class UserData(db.Model):
 
     def __repr__(self):
         return f"UserData('{self.start_date}', '{self.avg_period}', '{self.avg_cycle}')"
+
+if __name__ == '__main__':
+    manager.run()
