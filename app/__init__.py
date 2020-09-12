@@ -6,7 +6,7 @@ import os
 def create_app():
     app = Flask(__name__)
     db = SQLAlchemy()
-    db.init_app(app)
+    db.init_app()
     cors = CORS(app, support_credentials=True, resources={
         r"/*": {
             "origins": "*"
