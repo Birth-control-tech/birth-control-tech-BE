@@ -6,7 +6,7 @@ class Day(db.Model):
     date = db.Column(db.String(20), nullable=False)
     high_risk = db.Column(db.Boolean, nullable=True)
 
-    def __init__(self, temperature, date, high_risk):
+    def __init__(self, temperature, date):
         self.temperature = temperature
         self.date = date
 
