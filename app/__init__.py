@@ -3,15 +3,14 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 import os
 #create app method
-def create_app():
-    app = Flask(__name__)
-    db = SQLAlchemy()
-    db.init_app()
-    cors = CORS(app, support_credentials=True, resources={
-        r"/*": {
-            "origins": "*"
-        }
-    })
+app = Flask(__name__)
+db = SQLAlchemy()
+db.init_app()
+cors = CORS(app, support_credentials=True, resources={
+    r"/*": {
+        "origins": "*"
+    }
+})
 
 # app.config['CORS_HEADERS'] = 'Content-Type'
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
