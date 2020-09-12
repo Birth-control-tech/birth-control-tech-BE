@@ -1,8 +1,9 @@
 from flask import request, jsonify, session, render_template
-# from app import app
-from app.models import Day
-from app.models import UserData
-from app import db
+from app import app
+from .models import Day
+from .models import UserData
+from flask_cors import CORS, cross_origin
+from . import db
 
 
 
@@ -25,12 +26,15 @@ def returnAll():
 
 
 @app.route('/add_day', methods=['POST'])
+@cross_origin(supports_credentials=True)
 def createDay():
     temp = request.form['temperature']
     date = request.form['date']
+    # high_risk = request.form['high_risk']
     new_day = Day(temp, date)
     db.session.add(new_day)
     db.session.commit()
+    return jsonify({'success': 'ok'})
     return "<p>Day has been added</p>"
 
 
@@ -40,6 +44,8 @@ def returnData():
 
 
 @app.route('/add_data', methods=['POST'])
+@cross_origin(supports_credentials=True)
+
 def createData():
     start_date = request.form['start_date']
     avg_period = request.form['avg_period']
@@ -47,4 +53,5 @@ def createData():
     new_data = UserData(start_date, avg_period, avg_cycle)
     db.session.add(new_data)
     db.session.commit()
+    return jsonify({'success': 'ok'})
     return "<p>Data has been added</p>"
