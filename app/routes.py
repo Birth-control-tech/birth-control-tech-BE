@@ -1,5 +1,5 @@
 from flask import request, jsonify, session, render_template
-from app import app
+# from app import app
 from app.models import Day
 from app.models import UserData
 from app import db
