@@ -16,11 +16,15 @@ days = [{'temperature':'97', 'date':'01/01/2020', 'high_risk':False},
 ]
 
 @app.route('/', methods=['GET'])
+@cross_origin(supports_credentials=True)
+
 def home():
     return 'Lono Data'
 
 
 @app.route('/days/', methods=['GET'])
+@cross_origin(supports_credentials=True)
+
 def returnAll():
     return render_template('days.html', days=Day.query.all())
 
@@ -39,6 +43,8 @@ def createDay():
 
 
 @app.route('/user_data', methods=['GET'])
+@cross_origin(supports_credentials=True)
+
 def returnData():
     return render_template('data.html', data=UserData.query.all())
 
