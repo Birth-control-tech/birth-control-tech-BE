@@ -48,6 +48,7 @@ Werkzeug = "==1.0.1"
 flask-cors = "*"
 flask-script = "*"
 flask-migrate = "*"
+faker = "*"
 
 [requires]
 python_version = "3.8"
