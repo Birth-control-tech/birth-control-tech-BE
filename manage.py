@@ -9,6 +9,8 @@ from app.models import Day
 import random
 import datetime
 
+release: python manage.py db upgrade
+
 migrate = Migrate(app, db)
 manager = Manager(app)
 
