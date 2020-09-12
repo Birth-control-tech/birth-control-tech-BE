@@ -26,7 +26,7 @@ def returnAll():
 
 
 @app.route('/add_day', methods=['POST'])
-# @cross_origin(supports_credentials=True)
+@cross_origin(supports_credentials=True)
 def createDay():
     temp = request.form['temperature']
     date = request.form['date']
