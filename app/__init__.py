@@ -15,7 +15,7 @@ cors = CORS(app, support_credentials=True, resources={
 # app.config.from_object(config['FLASK_ENV'])
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 
 class Development(object):
     DEBUG = True
