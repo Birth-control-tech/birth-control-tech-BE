@@ -4,7 +4,7 @@ from flask_cors import CORS, cross_origin
 import os
 #create app method
 app = Flask(__name__)
-db = SQLAlchemy(app)
+db = SQLAlchemy()
 db.init_app(app)
 cors = CORS(app, support_credentials=True, resources={
     r"/*": {
