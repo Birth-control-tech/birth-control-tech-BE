@@ -26,7 +26,7 @@ def home():
 # @cross_origin(supports_credentials=True)
 
 def returnAll():
-    return render_template('days.html', days=Day.query.all())
+    return jsonify(render_template('days.html', days=Day.query.all()))
 
 
 @app.route('/add_day', methods=['POST'])
@@ -46,7 +46,7 @@ def createDay():
 # @cross_origin(supports_credentials=True)
 
 def returnData():
-    return render_template('data.html', data=UserData.query.all())
+    return jsonify(render_template('data.html', data=UserData.query.all()))
 
 
 @app.route('/add_data', methods=['POST'])
