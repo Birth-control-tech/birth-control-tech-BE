@@ -2,7 +2,7 @@ from flask import request, jsonify, session, render_template
 from app import app
 from .models import Day
 from .models import UserData
-from flask_cors import CORS, cross_origin
+# from flask_cors import CORS, cross_origin
 from . import db
 
 
@@ -16,21 +16,21 @@ days = [{'temperature':'97', 'date':'01/01/2020', 'high_risk':False},
 ]
 
 @app.route('/', methods=['GET'])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 
 def home():
     return 'Lono Data'
 
 
 @app.route('/days/', methods=['GET'])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 
 def returnAll():
     return render_template('days.html', days=Day.query.all())
 
 
 @app.route('/add_day', methods=['POST'])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 def createDay():
     temp = request.form['temperature']
     date = request.form['date']
@@ -43,14 +43,14 @@ def createDay():
 
 
 @app.route('/user_data', methods=['GET'])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 
 def returnData():
     return render_template('data.html', data=UserData.query.all())
 
 
 @app.route('/add_data', methods=['POST'])
-@cross_origin(supports_credentials=True)
+# @cross_origin(supports_credentials=True)
 
 def createData():
     start_date = request.form['start_date']
