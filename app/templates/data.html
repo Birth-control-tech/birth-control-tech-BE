@@ -1,5 +1,5 @@
-{% for userdata in data %}
-[]<<{ Period Start Date: {{userdata.start_date}},
+[{% for userdata in data %}
+{ Period Start Date: {{userdata.start_date}},
 Average Period Length: {{userdata.avg_period}},
-Average Length of Cycle: {{userdata.avg_cycle}}}
-{% endfor %}
+Average Length of Cycle: {{userdata.avg_cycle}}},
+{% endfor %}]

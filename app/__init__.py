@@ -12,7 +12,7 @@ app.config.from_object(app_config[os.environ.get('FLASK_ENV', 'production')])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 # db.init_app(app)
-CORS(app)
+cors = CORS(app)
 # cors = CORS(app, support_credentials=True, resources={
 #     r"/*": {
 #         "origins": "*"
