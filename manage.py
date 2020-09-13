@@ -4,7 +4,6 @@ from flask_migrate import Migrate, MigrateCommand
 from random import randint
 from sqlalchemy.exc import IntegrityError
 from faker import Faker
-from app import db
 from app.models import Day
 import random
 import datetime
