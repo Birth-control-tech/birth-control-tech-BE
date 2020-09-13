@@ -4,12 +4,11 @@ from flask_migrate import Migrate, MigrateCommand
 from random import randint
 from sqlalchemy.exc import IntegrityError
 from faker import Faker
-from app import db
 from app.models import Day
 import random
 import datetime
 
-release: python manage.py db upgrade
+# release: python manage.py db upgrade
 
 migrate = Migrate(app, db)
 manager = Manager(app)
@@ -56,3 +55,5 @@ manager.add_command('db', MigrateCommand)
 
 if __name__ == '__main__':
     manager.run()
+    db.create_all()
+    db.init_app()
