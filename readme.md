@@ -1,4 +1,4 @@
-### Checkout the temporary running BE [here](https://github.com/whitneykidd/lono-be)
+### Checkout the temporary running BE => [here](https://github.com/whitneykidd/lono-be)
 
 Notes to make a virtual environment
 run the following commans in the terminal
